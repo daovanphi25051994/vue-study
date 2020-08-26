@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <router-link to="/">User</router-link>
-    <router-link to="/admin">Admin</router-link>
+    <router-link to="/phi">phi</router-link>
+    <router-link to="/admin/dao">Admin</router-link>
     <router-view />
   </div>
 </template>
@@ -11,9 +12,9 @@ export default {
   name: "app",
   data() {
     return {
-      msg: "Welcome to Your Vue.js App"
     };
-  }
+  },
+
 };
 </script>
 
