@@ -1,9 +1,8 @@
 <template>
     <div>
-        <h1>Admin page</h1>
-        <router-link to="/admin/phi/users">User Management</router-link>
-        <router-link to="/admin/phi/posts">Post Management</router-link>
-        <router-view/>
+        <h1>User Management</h1>
+        <p>this is a table user</p>
+
     </div>
 </template>
 
