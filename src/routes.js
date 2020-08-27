@@ -9,10 +9,20 @@ export const routes = [
         path: '/', name: 'homepage', component: Home
     },
     {
-        path: '/:username', name: 'personal', component: Personal
+        path: '/:username', name: 'personal', component: Personal, beforeEnter: (to, from, next) => {
+            const role = localStorage.getItem('role');
+            if(role == 'USER'){
+                next();
+            }
+        }
     },
     {
-        path: '/admin/:username', name: 'admin', component:Admin, children:[
+        path: '/admin/:username', name: 'admin', component:Admin, beforeEnter: (to, from , next) => {
+            const role = localStorage.getItem('role');
+            if(role == 'ADMIN'){
+                next();
+            }
+        } ,children:[
             {            path:'users', name: 'user', component: UserManagement},
             {            path:'posts', name: 'posts', component: PostManagement}
         ]

@@ -3,6 +3,7 @@
         <h1>Personal page</h1>
         <p>My name is {{name}}</p>
         <p>age: 19</p>
+        <button @click="logout" >Logout</button>
     </div>
 </template>
 
@@ -12,6 +13,11 @@ export default {
     data() {
         return {
             name: this.$route.params.username
+        }
+    },
+    methods: {
+        logout() {
+            localStorage.clear;
         }
     }
 }

@@ -20,30 +20,36 @@ export default {
         password: ""
       },
       info: {
-        id: '',
-        address: ''
+        id: "",
+        address: ""
       }
     };
   },
   methods: {
     Login() {
-      console.log(this.user)
+      console.log(this.user);
       this.$http
         .post("", this.user)
         .then(
           response => {
-           return response.json();
+            return response.json();
           },
           error => {
             console.log(error);
           }
-        ).then(data =>{
+        )
+        .then(data => {
           this.info = data.user;
-          console.log(data)
-          localStorage.setItem('access_token', data.access_token);
-        localStorage.setItem('user', JSON.stringify(data.user));
-        localStorage.setItem('role', data.roles[0].role_name);
-        })
+          console.log(data);
+          localStorage.setItem("access_token", data.access_token);
+          localStorage.setItem("user", JSON.stringify(data.user));
+          localStorage.setItem("role", data.roles[0].role_name);
+          if (data.roles[0].role_name == "USER") {
+            this.$router.push("/" + data.user.username);
+          } else if (data.roles[0].role_name == "ADMIN") {
+            this.$router.push("/admin/" + data.user.username + "/users");
+          }
+        });
     }
   }
 };
