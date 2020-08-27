@@ -7,6 +7,19 @@ import VueResource from 'vue-resource'
 Vue.use(VueRouter)
 Vue.use(VueResource)
 Vue.http.options.root = "https://vndreamers-dev.herokuapp.com/auth/login"
+Vue.http.interceptors.push((request, next) =>{
+  if (true) {
+    const token = localStorage.getItem('access_token');
+    // request = request.clone({
+    //   setHeaders: {
+    //     Authorization: `Bearer ${token}`,
+    //     'Access-Control-Allow-Origin': '*',
+    //     'Content-Type': 'application/json'
+    //   }
+    // });
+    Vue.http.headers.common['Authorization'] = `Bearer ${token}`;
+  }
+})
 
 const router = new VueRouter({
   mode: 'history',

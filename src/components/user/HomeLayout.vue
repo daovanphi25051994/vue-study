@@ -39,6 +39,10 @@ export default {
           }
         ).then(data =>{
           this.info = data.user;
+          console.log(data)
+          localStorage.setItem('access_token', data.access_token);
+        localStorage.setItem('user', JSON.stringify(data.user));
+        localStorage.setItem('role', data.roles[0].role_name);
         })
     }
   }
