@@ -5,6 +5,8 @@
     <label>Password:</label>
     <input type="password" v-model="user.password" />
     <button @click="Login">Login</button>
+    <p>Id: {{ this.info.id }}</p>
+    <p>Address: {{ this.info.address }}</p>
   </div>
 </template>
 
@@ -16,6 +18,10 @@ export default {
       user: {
         email: "",
         password: ""
+      },
+      info: {
+        id: '',
+        address: ''
       }
     };
   },
@@ -26,12 +32,14 @@ export default {
         .post("https://vndreamers-dev.herokuapp.com/auth/login", this.user)
         .then(
           response => {
-            console.log(response);
+           return response.json();
           },
           error => {
             console.log(error);
           }
-        );
+        ).then(data =>{
+          this.info = data.user;
+        })
     }
   }
 };
