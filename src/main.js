@@ -6,6 +6,7 @@ import VueResource from 'vue-resource'
 
 Vue.use(VueRouter)
 Vue.use(VueResource)
+Vue.http.options.root = "https://vndreamers-dev.herokuapp.com/auth/login"
 
 const router = new VueRouter({
   mode: 'history',

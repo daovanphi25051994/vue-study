@@ -29,7 +29,7 @@ export default {
     Login() {
       console.log(this.user)
       this.$http
-        .post("https://vndreamers-dev.herokuapp.com/auth/login", this.user)
+        .post("", this.user)
         .then(
           response => {
            return response.json();
