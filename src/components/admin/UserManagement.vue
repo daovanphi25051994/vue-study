@@ -4,6 +4,7 @@
     <p>this is a table user</p>
     <button @click="plusOne">User +1</button>
     <button @click="minasOne">User -1</button>
+    <button @click="twoPlus" >reulst +2</button>
   </div>
 </template>
 
@@ -23,6 +24,9 @@ export default {
     },
     minasOne() {
       this.$store.state.result--;
+    },
+    twoPlus(){
+        this.$store.commit('plusTwo', 2)
     }
   }
 };

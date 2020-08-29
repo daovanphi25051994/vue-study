@@ -14,5 +14,10 @@ getters: {
     tenResult: state => {
         return state.result * 10
     }
+},
+mutations: {
+    plusTwo( state, n ){
+        state.result += n
+    }
 }
 })
