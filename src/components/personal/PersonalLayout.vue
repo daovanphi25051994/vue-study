@@ -4,6 +4,7 @@
         <p>My name is {{name}}</p>
         <p>age: 19</p>
         <button @click="logout" >Logout</button>
+        <p>reulst: {{ result }}</p>
     </div>
 </template>
 
@@ -18,6 +19,11 @@ export default {
     methods: {
         logout() {
             localStorage.clear;
+        }
+    },
+    computed: {
+        result (){
+            return this.$store.state.result
         }
     }
 }
