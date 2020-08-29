@@ -18,6 +18,9 @@ getters: {
 mutations: {
     plusTwo( state, n ){
         state.result += n
+    },
+    minusTwo( state) {
+        state.result -= 2
     }
 }
 })
